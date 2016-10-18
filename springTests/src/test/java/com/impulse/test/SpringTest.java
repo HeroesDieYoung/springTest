@@ -70,7 +70,7 @@ public class SpringTest {
 
 		logEmployeeLists(expected, saved);
 
-		Assert.assertTrue("List size is not 1", saved.size() == 2);
+		Assert.assertTrue("List size is not 2", saved.size() == 2);
 		Assert.assertTrue("List did not contain saved Employee Travis", saved.contains(e1));
 		Assert.assertTrue("List did not contain saved Employee Jeff", saved.contains(e2));
 	}
@@ -186,7 +186,7 @@ public class SpringTest {
 
 		logEmployeeLists(expectedEmployees, savedEmp);
 
-		Assert.assertTrue("List size is not 1 employee", savedEmp.size() == 2);
+		Assert.assertTrue("List size is not 2 employee", savedEmp.size() == 2);
 		Assert.assertTrue("List did not contain saved Employee Travis", savedEmp.contains(e1));
 		Assert.assertTrue("List did not contain saved Employee Jeff", savedEmp.contains(e2));
 
@@ -194,14 +194,14 @@ public class SpringTest {
 
 		logDepartmentLists(expectedDepartments, savedDep);
 
-		Assert.assertTrue("List size is not 1 department", savedDep.size() == 2);
+		Assert.assertTrue("List size is not 2 department", savedDep.size() == 2);
 		Assert.assertTrue("List did not contain saved Department", savedDep.contains(dev));
 		Assert.assertTrue("List did not contain saved Department", savedDep.contains(devops));
 	}
 
 	private void logEmployeeLists(List<Employee> expected, List<Employee> actual) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Expected employee list:\n");
+		sb.append("\nExpected employee list:\n");
 		for (Employee e : expected) {
 			sb.append(e.toString()).append("\n");
 		}
@@ -214,7 +214,7 @@ public class SpringTest {
 
 	private void logDepartmentLists(List<Department> expected, List<Department> actual) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Expected employee list:\n");
+		sb.append("\nExpected employee list:\n");
 		for (Department d : expected) {
 			sb.append(d.toString()).append("\n");
 		}

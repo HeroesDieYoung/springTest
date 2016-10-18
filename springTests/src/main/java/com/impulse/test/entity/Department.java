@@ -3,6 +3,7 @@ package com.impulse.test.entity;
 import java.util.Set;
 import java.util.TreeSet;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -17,7 +18,7 @@ public class Department implements Comparable<Department> {
 	@Id
 	private long id;
 	private String name;
-	@OneToMany(mappedBy = "department", orphanRemoval = true)
+	@OneToMany(mappedBy = "department", orphanRemoval = true, cascade = CascadeType.ALL)
 	private Set<Employee> employees;
 
 	public Department() {

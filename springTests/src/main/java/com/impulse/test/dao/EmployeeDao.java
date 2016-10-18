@@ -10,6 +10,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.impulse.test.entity.Department;
 import com.impulse.test.entity.Employee;
@@ -20,10 +22,12 @@ public class EmployeeDao {
 	@PersistenceContext
 	private EntityManager em;
 
+	@Transactional(propagation = Propagation.REQUIRED)
 	public void saveEmployee(Employee e) {
 		em.merge(e);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED)
 	public void deleteEmployee(Employee e) {
 		em.remove(em.merge(e));
 	}
@@ -37,10 +41,12 @@ public class EmployeeDao {
 		return q.getResultList();
 	}
 
-	public void saveDepartment(Department e) {
-		em.merge(e);
+	@Transactional(propagation = Propagation.REQUIRED)
+	public void saveDepartment(Department d) {
+		em.merge(d);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED)
 	public void deleteDepartment(Department e) {
 		em.remove(em.merge(e));
 	}
