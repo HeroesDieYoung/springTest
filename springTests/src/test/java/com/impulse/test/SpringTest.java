@@ -121,8 +121,8 @@ public class SpringTest {
 		dao.saveDepartment(dev);
 
 		// Now set the ID to what it should have been once saved
-		e1.setId(1);
-		e2.setId(2);
+		e1.setId(2);
+		e2.setId(1);
 		List<Employee> expectedEmployees = new LinkedList<>();
 		expectedEmployees.add(e1);
 		expectedEmployees.add(e2);
@@ -166,8 +166,8 @@ public class SpringTest {
 		dao.saveDepartment(devops);
 
 		// Now set the ID to what it should have been once saved
-		e1.setId(1);
-		e2.setId(2);
+		e1.setId(2);
+		e2.setId(1);
 		e3.setId(3);
 		e4.setId(4);
 		List<Employee> expectedEmployees = new LinkedList<>();
@@ -186,9 +186,11 @@ public class SpringTest {
 
 		logEmployeeLists(expectedEmployees, savedEmp);
 
-		Assert.assertTrue("List size is not 2 employee", savedEmp.size() == 2);
+		Assert.assertTrue("List size is not 4 employee", savedEmp.size() == 4);
 		Assert.assertTrue("List did not contain saved Employee Travis", savedEmp.contains(e1));
 		Assert.assertTrue("List did not contain saved Employee Jeff", savedEmp.contains(e2));
+		Assert.assertTrue("List did not contain saved Employee Andrew", savedEmp.contains(e3));
+		Assert.assertTrue("List did not contain saved Employee Nathan", savedEmp.contains(e4));
 
 		List<Department> savedDep = dao.getAllDepartments();
 

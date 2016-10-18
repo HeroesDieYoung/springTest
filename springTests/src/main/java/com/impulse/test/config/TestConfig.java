@@ -43,7 +43,6 @@ public class TestConfig {
 
 			{
 				put("hibernate.cache.use_second_level_cache", false);
-				put("hibernate.event.merge.entity_copy_observer", "allow");
 			}
 		});
 

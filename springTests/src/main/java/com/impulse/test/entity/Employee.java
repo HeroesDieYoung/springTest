@@ -1,6 +1,8 @@
 package com.impulse.test.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -13,6 +15,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 public class Employee implements Comparable<Employee> {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String firstName;
 	private String lastName;
